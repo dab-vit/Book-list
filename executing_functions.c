@@ -1,49 +1,8 @@
+
 #include "Info_Book.h"
 
 extern t_book	*g_root;
-/*
-void	add_node_to_list(t_book *book, char *title)
-{
-	t_book	*run;
-	t_book	*previous;
 
-	if (!g_root)
-		g_root = book;
-	else
-	{
-		previous = g_root;
-		run = g_root;
-		while (run && compare(run->title, title) < 0)
-		{
-			previous = run;	
-			run = run->next;
-		}
-		if (run == g_root)
-		{
-			g_root = book;
-			book->next = run;
-		}
-		else
-		{
-			if (run)
-				book->next = run;
-			previous->next = book;
-		}
-	}
-}
-
-void	add_book(char *title, char *author, int year)
-{
-	t_book	*book;
-
-	if (title && author)
-	{
-		book = insert_book_info(title, author, year);
-		if (book)
-			add_node_to_list(book, title);
-	}
-}
-*/	
 void	remove_book(char *title)
 {
 	t_book  *run;
@@ -76,18 +35,22 @@ void	remove_book(char *title)
 void	list_books(void)
 {
 	t_book	*run;
+	int	index;
 
+	index = 1;
 	if (g_root)
 	{
 		run = g_root;
 		while (run)
 		{
-			printf("Book: %s\t %s\t %i\n", run->title, run->author, run->year);
+			printf("\nBook %i:\n", index++);
+			printf("Title: %s\t Author: %s\t Year: %i\n", run->title, \
+			run->author, run->year);
 			run = run->next;
 		}
 	}
 	else
-		printf("Empty list\n");
+		write(1, EMPTY, ft_strlen(EMPTY));
 }
 
 void	search_book(char *title)
@@ -100,8 +63,9 @@ void	search_book(char *title)
 		while (run && compare(run->title, title))
 			run = run->next;
 		if (run)
-			printf("Book: %s\t %s\t %i\n", run->title, run->author, run->year);
+			printf("\nTitle: %s\t Author: %s\t Year: %i\n", run->title, \
+			run->author, run->year);
 		else
-			printf("Book not found in catalogue\n");
+			write(1, NOT_FOUND, ft_strlen(NOT_FOUND));
 	}
 }

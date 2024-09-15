@@ -1,5 +1,4 @@
 
-
 NAME = infobook
 
 CC = cc
@@ -8,6 +7,7 @@ RM = -f
 
 SRCS =	add_book.c\
 	check_year.c\
+	choose_an_option.c\
 	executing_functions.c\
 	Info_Book.c\
 	Info_Book_utils.c\

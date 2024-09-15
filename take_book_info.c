@@ -1,3 +1,4 @@
+
 #include "Info_Book.h"
 
 char	*get_data_info(char *data_type)
@@ -26,15 +27,7 @@ static char	check_year(char *year)
 		return (1);
 	return (0);
 }
-/*
-int	convert_year_to_integer(char *year)
-{
-	int	year_int;
-	
-	year_int = ascii_year_to_integer(year);
-	return (year_int);
-}
-*/
+
 void	take_book_info(void)
 {
 	char	*title;

@@ -1,4 +1,5 @@
-#include "structs.h"
+
+#include "Info_structs.h"
 #include <stdlib.h>
 
 extern t_book	*g_root;
