@@ -7,10 +7,12 @@ CFLAGS = -Wall -Wextra -Werror
 RM = -f
 
 SRCS =	add_book.c\
+	check_year.c\
 	executing_functions.c\
 	Info_Book.c\
 	Info_Book_utils.c\
-	free_functions.c
+	free_functions.c\
+	take_book_info.c
 
 OBJS = $(SRCS:.c=.o)
 

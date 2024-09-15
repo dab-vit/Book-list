@@ -2,7 +2,7 @@
 
 extern t_book	*g_root;
 
-t_book	*insert_book_info(char *title, char *author, int year)
+static t_book	*insert_book_info(char *title, char *author, int year)
 {
 	t_book	*book;
 
@@ -17,7 +17,7 @@ t_book	*insert_book_info(char *title, char *author, int year)
 	return (book);
 }
 
-void	add_node_to_list(t_book *book, char *title)
+static void	add_node_to_list(t_book *book, char *title)
 {
 	t_book	*run;
 	t_book	*previous;
@@ -56,9 +56,15 @@ void	add_book(char *title, char *author, int year)
 		book = insert_book_info(title, author, year);
 		if (book)
 			add_node_to_list(book, title);
+		else
+		{	
+			write(2, ERR, ft_strlen(ERR));
+			free_info(title, author);
+		}
 	}
 }
 
+/*
 void	take_book_info(void)
 {
 	char	*title;
@@ -87,4 +93,4 @@ void	take_book_info(void)
 		free_simple_pointer(title);
 		free_simple_pointer(title);
 	}
-}
+}*/

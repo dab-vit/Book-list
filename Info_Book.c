@@ -114,7 +114,8 @@ void	option_2(void)
 {
 	char    *title;
 
-	title = get_title();
+//	title = get_title();
+	title = get_data_info(TITLE_1);
 	if (title)
 	{
 		remove_book(title);
@@ -128,7 +129,8 @@ void    option_4(void)
 {
 	char    *title;
 
-	title = get_title();
+//	title = get_title();
+	title = get_data_info(TITLE_1);
 	if (title)
 	{
 		search_book(title);
