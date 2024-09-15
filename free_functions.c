@@ -9,6 +9,12 @@ void	free_simple_pointer(void *ptr)
 		free(ptr);
 }
 
+void	free_list_node(t_book *previous)
+{
+	free_simple_pointer(previous->title);
+	free_simple_pointer(previous->author);
+}
+
 void	free_list(void)
 {
 	t_book	*run;
@@ -22,8 +28,7 @@ void	free_list(void)
 		{
 			previous = run;
 			run = run->next;
-			free_simple_pointer(previous->title);
-			free_simple_pointer(previous->author);
+			free_list_node(previous);
 			free(previous);
 		}
 		g_root = (void *) 0;

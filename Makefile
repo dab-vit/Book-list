@@ -6,7 +6,9 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = -f
 
-SRCS =	Info_Book.c\
+SRCS =	add_book.c\
+	executing_functions.c\
+	Info_Book.c\
 	Info_Book_utils.c\
 	free_functions.c
 

@@ -1,6 +1,6 @@
 #include "Info_Book.h"
 
-t_book	*g_root = 0;
+extern t_book	*g_root;
 /*
 void	add_node_to_list(t_book *book, char *title)
 {
@@ -43,7 +43,7 @@ void	add_book(char *title, char *author, int year)
 			add_node_to_list(book, title);
 	}
 }
-	
+*/	
 void	remove_book(char *title)
 {
 	t_book  *run;
@@ -98,68 +98,10 @@ void	search_book(char *title)
 	{
 		run = g_root;
 		while (run && compare(run->title, title))
-		{
-			printf("run->title %s\t title %s\n", run->title, title);
-			printf("compare %i\n", compare(run->title, title));
 			run = run->next;
-		}
 		if (run)
 			printf("Book: %s\t %s\t %i\n", run->title, run->author, run->year);
 		else
 			printf("Book not found in catalogue\n");
 	}
-}
-*/
-void	option_2(void)
-{
-	char    *title;
-
-	title = get_title();
-	if (title)
-	{
-		remove_book(title);
-		free_simple_pointer(title);
-	}
-	else
-		printf("Error. Try again.\n");
-}
-
-void    option_4(void)
-{
-	char    *title;
-
-	title = get_title();
-	if (title)
-	{
-		search_book(title);
-		free_simple_pointer(title);
-	}
-	else
-		printf("Error. Try again.\n");
-}
-
-void	proceed(int option)
-{
-	if (option == 1)
-		take_book_info();
-	else if (option == 2)
-		option_2();
-	else if (option == 3)
-		list_books();
-	else if (option == 4)
-		option_4();
-}		
-
-int	main(void)
-{
-	int	option;
-
-	option = 0;
-	while (option != 5)
-	{
-		option = choose_an_option();
-		proceed(option);
-	}
-	free_list();
-	return (0);
 }

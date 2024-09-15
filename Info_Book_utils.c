@@ -1,10 +1,9 @@
-#include <unistd.h>
+
 #include "Info_Book.h"
-//# include "global_variables.h"
 
-extern t_book	*g_root;
+//extern t_book	*g_root;
 
-void    add_book(char *title, char *author, int year);
+//void    add_book(char *title, char *author, int year);
 
 void	select_option_mssg(void)
 {
@@ -30,7 +29,7 @@ char	choose_an_option(void)
 	}
 	return (option);
 }
-
+/*
 void	take_book_info(void)
 {
 	char	*title;
@@ -60,7 +59,7 @@ void	take_book_info(void)
 		free_simple_pointer(title);
 	}
 }
-
+*/
 char	*get_title(void)
 {
 	char    *title;
@@ -75,7 +74,7 @@ char	*get_title(void)
 	}
 	return (title);
 }
-
+/*
 t_book	*insert_book_info(char *title, char *author, int year)
 {
 	t_book	*book;
@@ -90,7 +89,7 @@ t_book	*insert_book_info(char *title, char *author, int year)
 	}
 	return (book);
 }
-
+*/
 int	compare(const char *s1, const char *s2)
 {
 	while (*s1 && *s2)
